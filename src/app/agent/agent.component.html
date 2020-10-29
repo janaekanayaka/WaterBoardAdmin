@@ -1,1 +1,58 @@
-<p>agent works!</p>
+
+
+<table>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>
+        <input type="text" [(ngModel)]="agent.id" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>
+        <input  type="text" [(ngModel)]="agent.email" required>
+      </td>
+    </tr>
+    <tr>
+      <td>Password</td>
+         <td>
+           <input type="text" [(ngModel)]="agent.password" required>
+        </td>
+      </tr>
+
+  <tr>
+    <td>Add</td>
+      <td>
+        <!-- submit button (to create new employee) -->
+        <button  (click)="addAgent(agent)">Submit</button>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="border-top: 1px solid gray;"></p>
+
+<p>
+  Employee List Works!
+</p>
+
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Password</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let agent of agents">
+      <td>{{ agent.id}}</td>
+      <td>{{ agent.email }}</td>
+      <td>{{ agent.password }}</td>
+    <td>
+        <button (click)="deleteAgent(agent.id)">Delete</button>
+    </td>
+    </tr>
+  </tbody>
+</table>
+
+

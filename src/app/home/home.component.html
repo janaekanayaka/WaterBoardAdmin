@@ -1,15 +1,15 @@
-
+<mat-card>
+  <mat-card-header> 
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
+  <mat-toolbar-row>
       <span class="span">WATER BOARD</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-<div class = "example-button-row">
-<button mat-raised-button color="primary">Home</button>
-
-<button mat-raised-button color="primary" [routerLink]="['/admin']">Admin</button>
-
-<button mat-raised-button color="primary">Agent</button>
-
-<button mat-raised-button color="primary">Reports</button>
-</div>
+      </mat-toolbar-row>
+      <div class = "example-button-row">
+      <button mat-raised-button color="primary" [routerLink]="['/admin']" class="mat-buttons">Admin login</button>
+   </div>
+</mat-toolbar>
+</mat-card-header>
+<mat-card-content>
+   <img mat-card-image class="img-responsive" src="assets/images/pagefront.jpg">
+</mat-card-content>
+</mat-card> 
