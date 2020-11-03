@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { AgentComponent } from './agent/agent.component';
 import { ReportsComponent } from './reports/reports.component';
+import { AgentDeleteComponent } from './agent-delete/agent-delete.component'
+
 
 const routes: Routes = [
 
@@ -12,6 +14,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'agent', component: AgentComponent },
   { path: 'reports', component: ReportsComponent },
+  { path: 'agentdelete', component: AgentDeleteComponent }
 
 ];
 

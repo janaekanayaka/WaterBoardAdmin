@@ -26,6 +26,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { AgentDeleteComponent } from './agent-delete/agent-delete.component';
+
 
 
 
@@ -35,7 +38,9 @@ import { MatTableModule } from '@angular/material/table';
     HomeComponent,
     AdminComponent,
     AgentComponent,
-    ReportsComponent
+    ReportsComponent,
+    AgentDeleteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule,
 
   ],
   providers: [],

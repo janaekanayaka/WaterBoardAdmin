@@ -1,0 +1,44 @@
+<!-- 
+<div>
+   <table>
+      <thead>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let agent of agents">
+          <td>{{ agent.id}}</td>
+          <td>{{ agent.email }}</td>
+          <td>{{ agent.password }}</td>
+        <td>
+            <button (click)="deleteAgent(agent.id)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+</div> -->
+
+<div> 
+    <table>
+        <thead>
+            
+            <th>Email</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>ID</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let agent of agentArray">
+                
+                <td>{{agent.email}}</td>
+                <td>{{ agent.name }}</td>
+                <td>{{ agent.phone }}</td>
+                <td>{{ agent.userID}}</td>
+                <td>
+                    <button (click)="deleteAgent(agent.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table> 
+</div>

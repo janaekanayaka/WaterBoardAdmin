@@ -8,6 +8,8 @@ import "firebase/auth";
 import { Observable } from 'rxjs';
 import { Agent } from './model/Agent'
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,17 +17,16 @@ export class WaterboardService {
 
   authstate: any = null;
   user: Observable<firebase.User>;
-
+  items: Observable<any[]>;
+ 
   constructor(private db: AngularFirestore, private firebaseAuth: AngularFireAuth) {
-    console.log("****************")
-    //console.log(this.getPolicies())
-    console.log("****************")
     this.user = firebaseAuth.authState;
+    
   }
 
   registerWithEmail(name: string, id: string, email: string, password: string) {
 
-    this.db.collection("User").add({
+    this.db.collection("users").add({
       "name": name,
       "id": id,
       "email": email,
@@ -55,7 +56,7 @@ export class WaterboardService {
 
   login(email, password) {
     this.firebaseAuth.signInWithEmailAndPassword(email, password).then(data => {
-      console.log('user dign in success ', email, data)
+      console.log('user sign in success ', email, data)
     }).catch(function (error) {
       console.log('firebase sign in error ', email, error)
       // Handle Errors here.
@@ -72,16 +73,32 @@ export class WaterboardService {
 
   addAgent(agent: Agent) {
     const agentObject = { ...agent };
-    return this.db.collection('Agents').add(agentObject);
+    return this.db.collection('users').add(agentObject);
   }
 
-  getAgents() {
-    return this.db.collection('Agents').snapshotChanges();
+  getAgents(){
+
+
+
+    return this.db.collection('/users', ref => ref.where('role', '==', 'agent')).get();
+
+  }
+  getAgent() {
+    return this.db.collection('users').get();
   }
 
   deleteAgent(agentId: string) {
-    this.db.doc('Agents/' + agentId).delete();
+    this.db.doc('users/' + agentId).delete();
   }
+
+  viewReports(agentId){
+
+
+
+    return this.db.collection('/reports', ref => ref.where('agentID', '==', agentId)).get();
+
+  }
+
 
 }
 

@@ -1,1 +1,57 @@
-<p>reports works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="span">Reports</span>
+        </mat-toolbar-row>
+        <div class = "example-button-row">
+     </div>
+</mat-toolbar>
+  
+ <table>
+    <thead>
+        <th>Co2</th>
+        <th>Note</th>
+        <th>PH</th>
+        <th>latitude</th>
+        <th>longitude</th>
+        <th>status</th>
+        <th>temperature</th>
+        <th>turbidity</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let report of reportArray">
+            <td>{{report.co2}}</td>
+            <td>{{report.note}}</td>
+            <td>{{report.pH}}</td>
+            <td>{{report.sampleLocation.latitude}}</td>
+            <td>{{report.sampleLocation.longitude}}</td>
+            <td>{{report.status}}</td>
+            <td>{{report.temperature}}</td>
+            <td>{{report.turbidity}}</td>
+        </tr>
+    </tbody>
+</table> 
+
+<!-- <div *ngFor="let report of reportArray">
+<table mat-table  class="mat-elevation-z8">
+    <ng-container matColumnDef="co2">
+      <th mat-header-cell *matHeaderCellDef> Co2 </th>
+      <td mat-cell > {{report.co2}} </td>
+    </ng-container>
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef> Note </th>
+      <td mat-cell > {{report.note}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ph">
+      <th mat-header-cell *matHeaderCellDef> PH </th>
+      <td mat-cell > {{report.pH}} </td>
+    </ng-container>
+   <ng-container matColumnDef="latitude">
+      <th mat-header-cell *matHeaderCellDef> Latitude </th>
+      <td mat-cell > {{report.sampleLocation.latitude}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+   -->
