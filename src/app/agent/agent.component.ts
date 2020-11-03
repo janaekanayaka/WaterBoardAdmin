@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 import { WaterboardService } from '../waterboard.service';
 import { Agent } from '../model/Agent'
 @Component({
@@ -10,29 +9,43 @@ import { Agent } from '../model/Agent'
 export class AgentComponent implements OnInit {
 
   agent: Agent = new Agent();
-
-  // array of emplyee - type: Employee
-  agents: Agent[];
+  agents= [];
+  reports = []
 
 
   constructor(private waterboardService: WaterboardService) { }
 
   ngOnInit(): void {
     this.getAgents();
-    console.log(this.getAgents())
   }
 
   getAgents() {
 
-    this.waterboardService.getAgents().subscribe(data => {
+    this.waterboardService.getAgents().subscribe((snapshot) => {
+      snapshot.docs.forEach(doc => {
+        console.log(doc.data());
+        this.agents.push(doc.data())
+       
+      })
 
-      this.agents = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-
-        } as Agent;
-      });
+     
     });
+
+  }
+
+  viewReports(agentId){
+    console.log(agentId)
+    this.waterboardService.viewReports(agentId).subscribe((snapshot) => {
+      snapshot.docs.forEach(doc => {
+        console.log(doc.data());
+        this.reports.push(doc.data())
+       
+      })
+
+     
+    });
+
+
   }
 
   addAgent(agent: Agent) {

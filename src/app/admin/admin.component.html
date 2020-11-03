@@ -21,39 +21,67 @@
        <mat-card-content>
         <mat-tab-group>
         <mat-tab label="Login">
-            <form (ngSubmit)="login()">
-                <mat-form-field class="example-full-width">
-                          <mat-label>Email</mat-label>
-                          <input type="email" name="email" [(ngModel)]="email" matInput placeholder="Email" value="" required>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>Password</mat-label>
-                    <input type="password" name="password" [(ngModel)]="password" matInput placeholder="Password" required>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="errorHandlingLogin('email', 'required')">
+                     <strong>Email</strong> is required
+                     </mat-error>
+                     <mat-error *ngIf="errorHandlingLogin('email', 'pattern')">
+                       You must provide an valid <strong>email</strong>
+                       </mat-error>
                   </mat-form-field>
-                  <button type="submit" class="mat-button"mat-button color="primary">Login</button>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="Password" formControlName="password">
+                    <mat-error *ngIf="errorHandlingLogin('password', 'required')">
+                     <strong>Password</strong> is required
+                     </mat-error>
+                  </mat-form-field>
+                  <div class="button-wrapper">
+                    <button class="mat-button"mat-button color="primary">Login</button>
+                 </div>
              </form>
  </mat-tab>
          
           
  <mat-tab label="Registration"> 
-        <form (ngSubmit)="Registration()">
+        <form [formGroup]="myForm" (ngSubmit)="Registration()">
               <mat-form-field class="example-full-width">
                  <mat-label>Name</mat-label>
-                 <input type="name" name="name" [(ngModel)]="name" matInput placeholder="Name" value="" required>
+                 <input matInput placeholder="Name" formControlName="name">
+                 <mat-error *ngIf="errorHandling('name', 'required')">
+                  <strong>Name</strong> is required
+                  </mat-error>
                </mat-form-field>
                <mat-form-field class="example-full-width">
                  <mat-label>ID</mat-label>
-                 <input type="id" name="id" [(ngModel)]="id" matInput placeholder="ID" value="" required>
+                 <input matInput placeholder="ID" formControlName="id">
+                 <mat-error *ngIf="errorHandling('id', 'required')">
+                  <strong>ID</strong> is required
+                  </mat-error>
                </mat-form-field>
                <mat-form-field class="example-full-width">
                  <mat-label>Email</mat-label>
-                 <input type="email" name="email" [(ngModel)]="email" matInput placeholder="Email" value="" required>
+                 <input matInput placeholder="Email" formControlName="email">
+                 <mat-error *ngIf="errorHandling('email', 'required')">
+                  <strong>Email</strong> is required
+                  </mat-error>
+                  <mat-error *ngIf="errorHandling('email', 'pattern')">
+                    You must provide an valid <strong>email</strong>
+                    </mat-error>
                </mat-form-field>
                <mat-form-field class="example-full-width">
                  <mat-label>Password</mat-label>
-                 <input type="password" name="password" [(ngModel)]="password" matInput placeholder="Password" required>
+                 <input type="password" matInput placeholder="Password" formControlName="password">
+                 <mat-error *ngIf="errorHandling('password', 'required')">
+                  <strong>Password</strong> is required
+                  </mat-error>
                </mat-form-field>
-               <button type="submit" class="mat-button"mat-button color="primary">Registration</button>
+               <div class="button-wrapper">
+                <button mat-flat-button color="primary">Registration</button>
+              </div>
                 </form>
                  </mat-tab>
              </mat-tab-group>

@@ -1,13 +1,23 @@
 
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span class="span">Agents Work</span>
+      </mat-toolbar-row>
+      <div class = "example-button-row">
+      <button mat-raised-button color="primary"  [routerLink]="['/reports']" style="float: left;">Users Reports</button>
+      <button mat-raised-button color="primary"  [routerLink]="['/agentdelete']" style="float: left;">Agent Delete</button>
+   </div>
+</mat-toolbar>
+
 
 <table>
   <tbody>
-    <tr>
+    <!-- <tr>
       <td>ID</td>
       <td>
         <input type="text" [(ngModel)]="agent.id" required>
       </td>
-    </tr>
+    </tr> -->
     <tr>
       <td>Email</td>
       <td>
@@ -20,21 +30,19 @@
            <input type="text" [(ngModel)]="agent.password" required>
         </td>
       </tr>
-
-  <tr>
-    <td>Add</td>
-      <td>
-        <!-- submit button (to create new employee) -->
-        <button  (click)="addAgent(agent)">Submit</button>
-         </td>
-    </tr>
-  </tbody>
+   <tr>
+     <td>Add</td>
+       <td>
+         <button  (click)="addAgent(agent)">Add</button>
+       </td>
+     </tr>
+   </tbody>
 </table>
 
-<p style="border-top: 1px solid gray;"></p>
 
+<div>
 <p>
-  Employee List Works!
+  Agents List 
 </p>
 
 <table>
@@ -45,14 +53,19 @@
   </thead>
   <tbody>
     <tr *ngFor="let agent of agents">
-      <td>{{ agent.id}}</td>
+      <td>{{ agent.userID}}</td>
       <td>{{ agent.email }}</td>
       <td>{{ agent.password }}</td>
     <td>
-        <button (click)="deleteAgent(agent.id)">Delete</button>
+        <button (click)="deleteAgent(agent.userID)">Delete</button>
     </td>
+
+    <td>
+      <button (click)="viewReports(agent.userID)">View Reports</button>
+  </td>
+
     </tr>
   </tbody>
 </table>
-
+</div>
 

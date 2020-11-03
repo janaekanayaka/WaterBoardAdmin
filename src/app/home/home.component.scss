@@ -17,7 +17,7 @@
 .img-responsive{
   padding-top: 1px;
   border: none;
-  height:50%;
-  width:50%;
-  background:no-repeat center center fixed;
+  height:auto;
+  width:100%;
+  background-size: cover;
 }
