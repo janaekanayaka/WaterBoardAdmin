@@ -73,6 +73,7 @@ export class WaterboardService {
 
   addAgent(agent: Agent) {
     const agentObject = { ...agent };
+    console.log(agent, "sddbsd")
     return this.db.collection('users').add(agentObject);
   }
 

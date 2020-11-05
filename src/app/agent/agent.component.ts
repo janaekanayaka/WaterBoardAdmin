@@ -49,7 +49,10 @@ export class AgentComponent implements OnInit {
   }
 
   addAgent(agent: Agent) {
-    return this.waterboardService.addAgent(agent);
+    this.waterboardService.addAgent(agent)
+    this.agents = []
+    this.getAgents();
+
   }
 
   deleteAgent(agentId: string) {
