@@ -11,6 +11,7 @@ export class AgentComponent implements OnInit {
   agent: Agent = new Agent();
   agents= [];
   reports = []
+  _temp_one_post: any | undefined;
 
 
   constructor(private waterboardService: WaterboardService) { }
@@ -44,6 +45,15 @@ export class AgentComponent implements OnInit {
 
      
     });
+    try{
+      this._temp_one_post = undefined
+      delete this._temp_one_post
+      console.log(this._temp_one_post)
+    }catch(e){
+      console.log(e)
+    }
+
+    this._temp_one_post = this.reports;
 
 
   }
