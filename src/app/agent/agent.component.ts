@@ -53,13 +53,13 @@ export class AgentComponent implements OnInit {
     this.agents = []
 
     this.getAgents();
-    window.location.reload();
+    // window.location.reload();
 
   }
 
   deleteAgent(agentId: string) {
     this.waterboardService.deleteAgent(agentId);
-    window.location.reload();
+    // window.location.reload();
   }
 
 }
