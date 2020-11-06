@@ -71,10 +71,46 @@ export class WaterboardService {
     this.firebaseAuth.signOut();
   }
 
-  addAgent(agent: Agent) {
+  // addAgent(agent: Agent) {
+  //   const agentObject = { ...agent };
+  //   console.log(agent, "sddbsd")
+  //   return this.db.collection('users').add(agentObject);
+  // }
+
+  addAgent(agent:any){
+    this.firebaseAuth.createUserWithEmailAndPassword(agent.email, agent.password)
+    .then((user :any)=>{
+      var userData = user.user;
+      var uid = userData.uid;
+      console.log(uid)
+      
     const agentObject = { ...agent };
-    console.log(agent, "sddbsd")
-    return this.db.collection('users').add(agentObject);
+    // agentObject['userID'] = uid
+    console.log(agentObject, "sddbsd")
+
+    this.db.collection("users").doc(uid).set({
+        email: agent.email,
+        password: agent.password,
+        role: "agent",
+        userID: uid
+  })
+
+    
+    // this.db.collection('users').add(agentObject).then(docRef => {
+    //   console.log("Document written with ID: ", docRef.id);
+    //   agentObject['userID'] = docRef.id
+    //   const testObj = {
+    //     email: agent.email,
+    //     password: agent.password,
+    //     role: "agent",
+    //     userID: docRef.id
+    //   }
+    //   console.log(testObj)
+    //   return this.db.collection('users').doc(docRef.id).set(testObj);
+  // });
+    })
+    .catch((e) => console.log(e));
+
   }
 
   getAgents(){
@@ -89,7 +125,12 @@ export class WaterboardService {
   }
 
   deleteAgent(agentId: string) {
-    this.db.doc('users/' + agentId).delete();
+    try{
+      this.db.doc('users/' + agentId).delete();
+    }catch(e){
+      console.log(e)
+    }
+   
   }
 
   viewReports(agentId){
