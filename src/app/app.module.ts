@@ -17,16 +17,16 @@ import { AgentComponent } from './agent/agent.component';
 import { ReportsComponent } from './reports/reports.component';
 
 //material modules
-import { MatButtonModule } from '@angular/material/button';
+// import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+// import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatTabsModule } from '@angular/material/tabs';
+// import { MatCardModule } from '@angular/material/card';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table';
-import { MatGridListModule } from '@angular/material/grid-list';
+// import { MatTableModule } from '@angular/material/table';
+// import { MatGridListModule } from '@angular/material/grid-list';
 import { AgentDeleteComponent } from './agent-delete/agent-delete.component';
 
 
@@ -48,17 +48,17 @@ import { AgentDeleteComponent } from './agent-delete/agent-delete.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    MatButtonModule,
+    // MatButtonModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatCardModule,
-    MatInputModule,
-    MatIconModule,
+    // MatToolbarModule,
+    // MatTabsModule,
+    // MatCardModule,
+    // MatInputModule,
+    // MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule,
-    MatGridListModule,
+    // MatTableModule,
+    // MatGridListModule,
 
   ],
   providers: [],
