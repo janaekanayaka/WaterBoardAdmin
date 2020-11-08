@@ -67,5 +67,37 @@
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="_temp_one_post" class="modal-body">
+  <div class="card shadow mb-1 animated--fade-in">
+    <div class="card-header pt-2 pb-2">
+      <span class="float-left image-cropper mr-3">
+        <img style="height: 2.5rem;" class="mr-3" src="{{_temp_one_post.image}}" alt="">
+      </span>
+      <span>
+        <thead>
+          <th>Co2</th>
+          <th>Note</th>
+          <th>reportDate</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of _temp_one_post">
+            <td>{{ data.co2}}</td>
+            <td>{{ data.note }}</td>
+            <td>{{ data.reportDate }}</td>
+            <td>{{ data.status }}</td>
+            <td>{{ data.temperature }}</td>
+            <td>{{ data.turbidity }}</td>
+            <td>{{ data.sampleLocation.latitude }}</td>
+            <td>{{ data.sampleLocation.longitude }}</td>
+          </tr>
+        </tbody>
+      </span>
+    </div>
+    <div class="modal-footer one-pst-pdng">
+      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+    </div>
+</div>  
+
 </div>
 
